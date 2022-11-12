@@ -4,6 +4,7 @@ import com.joelvitorniino.dto.UserDTO;
 import com.joelvitorniino.model.User;
 import com.joelvitorniino.service.UserService;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 import org.springframework.web.servlet.support.ServletUriComponentsBuilder;
@@ -58,5 +59,13 @@ public class UserResource {
         obj = service.update(obj);
 
         return ResponseEntity.noContent().build();
+    }
+
+    @GetMapping("/validate_password")
+    public ResponseEntity<Boolean> validatePassword(@RequestParam String username, @RequestParam String password) {
+        boolean valid = service.validatePassword(username, password);
+        HttpStatus status = (valid) ? HttpStatus.OK : HttpStatus.UNAUTHORIZED;
+
+        return ResponseEntity.status(status).body(valid);
     }
 }
