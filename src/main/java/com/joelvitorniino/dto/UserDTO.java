@@ -12,7 +12,7 @@ public class UserDTO implements Serializable {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Integer id;
 
-    private String user;
+    private String username;
 
     private String password;
 
@@ -21,7 +21,7 @@ public class UserDTO implements Serializable {
 
     public UserDTO(User obj) {
         this.id = obj.getId();
-        this.user = obj.getUser();
+        this.username = obj.getUsername();
         this.password = obj.getPassword();
     }
 
@@ -33,12 +33,12 @@ public class UserDTO implements Serializable {
         this.id = id;
     }
 
-    public String getUser() {
-        return user;
+    public String getUsername() {
+        return username;
     }
 
-    public void setUser(String user) {
-        this.user = user;
+    public void setUsername(String username) {
+        this.username = username;
     }
 
     public String getPassword() {
