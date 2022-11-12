@@ -1,4 +1,7 @@
 package com.joelvitorniino.repository;
 
-public interface UserRepository extends org.springframework.data.jpa.repository.JpaRepository<com.joelvitorniino.model.User, java.lang.Integer> {
+import com.joelvitorniino.model.User;
+import org.springframework.data.jpa.repository.JpaRepository;
+
+public interface UserRepository extends JpaRepository<User, Integer> {
 }
