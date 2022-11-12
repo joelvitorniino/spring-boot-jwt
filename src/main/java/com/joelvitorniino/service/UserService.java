@@ -35,5 +35,7 @@ public class UserService {
         } else {
             user.orElseThrow(() -> new UserNotFoundException("User is not found"));
         }
+
+        return user;
     }
 }
