@@ -1,5 +1,6 @@
 package com.joelvitorniino.service;
 
+import com.joelvitorniino.dto.UserDTO;
 import com.joelvitorniino.model.User;
 import com.joelvitorniino.repository.UserRepository;
 import com.joelvitorniino.service.exception.UserNotFoundException;
@@ -37,5 +38,9 @@ public class UserService {
         }
 
         return user;
+    }
+
+    public User fromDTO(UserDTO objDto) {
+        return new User(objDto.getId(), objDto.getUser(), objDto.getPassword());
     }
 }
