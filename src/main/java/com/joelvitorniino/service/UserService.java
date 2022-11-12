@@ -5,6 +5,7 @@ import com.joelvitorniino.model.User;
 import com.joelvitorniino.repository.UserRepository;
 import com.joelvitorniino.service.exception.UserNotFoundException;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
@@ -15,11 +16,16 @@ public class UserService {
     @Autowired
     private UserRepository repository;
 
+    @Autowired
+    private PasswordEncoder encoder;
+
     public List<User> findAll() {
         return repository.findAll();
     }
 
     public User insert(User obj) {
+        obj.setPassword(encoder.encode(obj.getPassword()));
+
         return repository.save(obj);
     }
 
