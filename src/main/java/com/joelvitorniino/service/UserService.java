@@ -29,6 +29,19 @@ public class UserService {
         return repository.save(obj);
     }
 
+    public Boolean validatePassword(String username, String password) {
+        Optional<User> optUser = repository.findByUsername(username);
+
+        if(optUser.isEmpty()) {
+            throw new UserNotFoundException("Username is not found!");
+        };
+
+        User user = optUser.get();
+        boolean valid = encoder.matches(password, user.getPassword());
+
+        return valid;
+    }
+
     public void deleteById(Integer id) {
         findById(id);
         repository.deleteById(id);
