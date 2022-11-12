@@ -52,6 +52,18 @@ public class UserService {
         newObj.setPassword(obj.getPassword());
     }
 
+    public Optional<User> findByUsername(String username) {
+        Optional<User> user = repository.findByUsername(username);
+
+        if(user.isPresent()) {
+            return user;
+        } else {
+            user.orElseThrow(() -> new UserNotFoundException("Username is not found"));
+        }
+
+        return user;
+    }
+
     public User fromDTO(UserDTO objDto) {
         return new User(objDto.getId(), objDto.getUsername(), objDto.getPassword());
     }
