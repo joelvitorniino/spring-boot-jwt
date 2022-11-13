@@ -34,7 +34,7 @@ public class UserService {
 
         if(optUser.isEmpty()) {
             throw new UserNotFoundException("Username is not found!");
-        };
+        }
 
         User user = optUser.get();
         boolean valid = encoder.matches(password, user.getPassword());
