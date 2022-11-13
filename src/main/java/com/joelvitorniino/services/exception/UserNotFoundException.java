@@ -1,4 +1,4 @@
-package com.joelvitorniino.service.exception;
+package com.joelvitorniino.services.exception;
 
 public class UserNotFoundException extends RuntimeException {
     public UserNotFoundException(String msg) {

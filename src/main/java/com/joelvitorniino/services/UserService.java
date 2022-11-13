@@ -1,9 +1,9 @@
-package com.joelvitorniino.service;
+package com.joelvitorniino.services;
 
 import com.joelvitorniino.dto.UserDTO;
 import com.joelvitorniino.model.User;
 import com.joelvitorniino.repository.UserRepository;
-import com.joelvitorniino.service.exception.UserNotFoundException;
+import com.joelvitorniino.services.exception.UserNotFoundException;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.stereotype.Service;
