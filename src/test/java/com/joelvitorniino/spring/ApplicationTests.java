@@ -1,10 +1,10 @@
-package com.joelvitorniino;
+package com.joelvitorniino.spring;
 
 import org.junit.jupiter.api.Test;
 import org.springframework.boot.test.context.SpringBootTest;
 
 @SpringBootTest
-class SpringBootJwtApplicationTests {
+class ApplicationTests {
 
 	@Test
 	void contextLoads() {
